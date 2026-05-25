@@ -1,1 +1,219 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Video Downloader</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      width:100%;
+      height:100vh;
+      overflow:hidden;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      position:relative;
+      background:black;
+    }
+
+    /* BACKGROUND IMAGE */
+    .bg-image{
+      position:absolute;
+      width:100%;
+      height:100%;
+      background:url(images.jpeg) center center/cover no-repeat;
+      z-index:-2;
+      animation:fadeBG 6s ease-in-out infinite;
+      filter:brightness(0.45);
+    }
+
+    /* DARK OVERLAY */
+    .overlay{
+      position:absolute;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.45);
+      z-index:-1;
+    }
+
+    /* MAIN BOX */
+    .container{
+      width:90%;
+      max-width:700px;
+      text-align:center;
+      padding:40px;
+      border-radius:25px;
+      background:rgba(255,255,255,0.05);
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.1);
+      box-shadow:
+        0 0 20px rgba(0,255,255,0.3),
+        0 0 40px rgba(0,255,255,0.15);
+    }
+
+    /* TITLE */
+    h1{
+      font-size:3rem;
+      font-weight:700;
+      color:#fff;
+      margin-bottom:10px;
+      text-shadow:
+        0 0 10px #00ffff,
+        0 0 20px #00ffff,
+        0 0 40px #00ffff;
+    }
+
+    /* SUBTITLE */
+    p{
+      color:#ddd;
+      font-size:0.95rem;
+      margin-bottom:35px;
+      letter-spacing:1px;
+    }
+
+    /* INPUT BOX */
+    .input-box{
+      width:100%;
+      position:relative;
+    }
+
+    input{
+      width:100%;
+      padding:18px 20px;
+      border:none;
+      outline:none;
+      border-radius:15px;
+      background:rgba(255,255,255,0.08);
+      color:white;
+      font-size:1rem;
+
+      border:2px solid #00ffff;
+
+      box-shadow:
+        0 0 10px #00ffff,
+        0 0 20px rgba(0,255,255,0.5),
+        inset 0 0 10px rgba(0,255,255,0.2);
+
+      transition:0.3s;
+    }
+
+    input:focus{
+      transform:scale(1.02);
+      box-shadow:
+        0 0 20px #00ffff,
+        0 0 40px rgba(0,255,255,0.7),
+        inset 0 0 15px rgba(0,255,255,0.3);
+    }
+
+    input::placeholder{
+      color:#bbb;
+    }
+
+    /* DOWNLOAD BUTTON */
+    button{
+      margin-top:25px;
+      padding:15px 45px;
+      border:none;
+      border-radius:15px;
+      font-size:1rem;
+      font-weight:600;
+      color:white;
+      cursor:pointer;
+
+      background:linear-gradient(45deg,#00ffff,#0077ff);
+
+      box-shadow:
+        0 0 10px #00ffff,
+        0 0 25px rgba(0,255,255,0.6);
+
+      transition:0.3s ease;
+    }
+
+    button:hover{
+      transform:translateY(-3px) scale(1.05);
+
+      box-shadow:
+        0 0 20px #00ffff,
+        0 0 40px rgba(0,255,255,0.9);
+    }
+
+    /* BACKGROUND FADE ANIMATION */
+    @keyframes fadeBG{
+      0%{
+        opacity:0.4;
+        transform:scale(1);
+      }
+
+      50%{
+        opacity:1;
+        transform:scale(1.08);
+      }
+
+      100%{
+        opacity:0.4;
+        transform:scale(1);
+      }
+    }
+
+    /* MOBILE */
+    @media(max-width:768px){
+
+      h1{
+        font-size:2.2rem;
+      }
+
+      .container{
+        padding:30px 20px;
+      }
+
+      input{
+        padding:16px;
+      }
+
+      button{
+        width:100%;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- BACKGROUND IMAGE -->
+  <div class="bg-image"></div>
+
+  <!-- DARK OVERLAY -->
+  <div class="overlay"></div>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+
+    <h1>Download Your Video</h1>
+
+    <p>Paste your URL</p>
+
+    <div class="input-box">
+      <input type="text" placeholder="Paste video URL here...">
+    </div>
+
+    <button>Download</button>
+
+  </div>
+
+</body>
+</html>
